@@ -11,11 +11,18 @@ namespace Practica_web_api.Data
 
         public DbSet<Usuario> Usuario => Set<Usuario>();
 
+        public DbSet<Proveedor> Proveedor => Set<Proveedor>();
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Usuario>(entity =>
             {
                 entity.Property(p => p.Nombre).HasMaxLength(100);
+            });
+            modelBuilder.Entity<Proveedor>(entity=>
+            {                 
+                entity.Property(p => p.Nombre).HasMaxLength(100);
+                entity.Property(p => p.Telefono).HasMaxLength(20);
             });
         }
 
